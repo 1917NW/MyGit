@@ -32,7 +32,6 @@ public class CatFileCommand implements Command {
         // 解压文件
         String blobFileContent = ZipUtil.unZipFile(bloShaFile);
 
-        System.out.println("解析后的文件内容为：" + blobFileContent);
 
         // 解析Blob文件格式
         BlobObject blobObjectFromBlobContent = BlobObject.getBlobObjectFromBlobContent(blobFileContent);

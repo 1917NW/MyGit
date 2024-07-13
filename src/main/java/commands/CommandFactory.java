@@ -32,7 +32,6 @@ public class CommandFactory implements Command{
     public void execCommand(String[] args) {
         if(currentCommand != null){
             commandMap.get(currentCommand).execCommand(args);
-            System.out.println("命令" + currentCommand + "执行成功！");
             currentCommand = null;
         }
     }
