@@ -21,7 +21,6 @@ public class CommandFactory implements Command{
     public CommandFactory setCurrentCommand(String commandStr){
 
         currentCommand = CommandEnum.getByName(commandStr);
-        System.out.println(currentCommand.getCommandName());
         if(currentCommand == null)
             System.out.println("Unknown command: " + commandStr);
 
