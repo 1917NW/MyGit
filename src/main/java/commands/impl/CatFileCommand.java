@@ -27,7 +27,6 @@ public class CatFileCommand implements Command {
         final File root = new File(".git");
         File bloShaFile = new File(root, "objects/" + firstDir + "/" + secondFile);
 
-        System.out.println("读取的Blob文件路径" + bloShaFile.getAbsolutePath());
 
         // 解压文件
         String blobFileContent = ZipUtil.unZipFile(bloShaFile);
