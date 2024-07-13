@@ -1,24 +1,24 @@
 package utils;
 
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.util.zip.ZipInputStream;
+import java.io.*;
+import java.util.zip.InflaterInputStream;
+
 
 public class ZipUtil {
 
     public static String unZipFile(File file){
         StringBuilder stringBuilder = new StringBuilder();
-        try (ZipInputStream zipInputStream = new ZipInputStream(new FileInputStream(file))) {
-            byte[] buffer = new byte[1024];
-            int bytesRead;
-            while ((bytesRead = zipInputStream.read(buffer)) != -1) {
-                stringBuilder.append(buffer);
+        try {
+            FileInputStream fis = new FileInputStream(file);
+            InflaterInputStream iis = new InflaterInputStream(fis);
+            InputStreamReader isr = new InputStreamReader(iis);
+            BufferedReader br = new BufferedReader(isr);
+            String line = "";
+            while ((line = br.readLine()) != null) {
+                stringBuilder.append(line);
             }
-
-            System.out.println("Blob file unzipped successfully!");
-        } catch (IOException e) {
-            System.out.println("Blob file unzipped failed!");
+        }catch (Exception e){
+            System.out.println("UnZip failed!");
         }
         return stringBuilder.toString();
     }
