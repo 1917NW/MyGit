@@ -12,7 +12,7 @@ public class Main {
 
     final String command = args[0];
 
-
+    System.out.println("命令为:" + command);
     CommandFactory commandFactory = new CommandFactory();
     commandFactory.setCurrentCommand(command)
                   .execCommand(args);

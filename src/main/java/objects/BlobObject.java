@@ -1,18 +1,16 @@
 package objects;
 
+import constants.StrConstant;
 import lombok.Data;
 
 
 @Data
-public class BlobObject {
+public class BlobObject implements GitObject{
     int header;
     String content;
 
     public final static String BLOB_FILE_PREFIX = "blob";
 
-    public final static String BLOB_SPACE = " ";
-
-    public final static String BLOB_NULL= "\0";
     /**
      * 将Blob内容转换为Blob对象
      * @param blobContent
@@ -42,7 +40,7 @@ public class BlobObject {
      * @return
      */
     public static String getBlobContentFromBlobObject(BlobObject blobObject){
-        return BLOB_FILE_PREFIX + BLOB_SPACE + blobObject.getHeader() + BLOB_NULL + blobObject.getContent();
+        return BLOB_FILE_PREFIX + StrConstant.SPACE + blobObject.getHeader() + StrConstant.OBJECT_NULL + blobObject.getContent();
     }
 
     /**
@@ -51,7 +49,7 @@ public class BlobObject {
      * @return
      */
     public static String getBlobContentFromContent(String content){
-        return BLOB_FILE_PREFIX + BLOB_SPACE + content.length() + BLOB_NULL + content;
+        return BLOB_FILE_PREFIX +  StrConstant.SPACE + content.length() + StrConstant.OBJECT_NULL + content;
     }
 
 }

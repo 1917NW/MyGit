@@ -32,7 +32,6 @@ public class ZipUtil {
      * @param strContent
      */
     public static void zipStrContent(File file, byte[] strContent){
-
         try {
             System.out.println("压缩内容到文件"+file.getAbsolutePath());
             FileOutputStream fos = new FileOutputStream(file);
@@ -44,5 +43,9 @@ public class ZipUtil {
             System.out.println("Zip Failed!");
         }
 
+    }
+
+    public static void zipStrContent(File file, String strContent){
+        zipStrContent(file, strContent.getBytes());
     }
 }
