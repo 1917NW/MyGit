@@ -9,7 +9,8 @@ public enum CommandEnum {
 
     INIT("init"),
     CAT_FILE("cat-file"),
-    HASH_OBJECT("hash-object")
+    HASH_OBJECT("hash-object"),
+    LS_TREE("ls-tree")
     ;
     private String commandName;
 
