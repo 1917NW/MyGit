@@ -1,6 +1,7 @@
 package commands;
 
 import commands.impl.CatFileCommand;
+import commands.impl.HashObjectCommand;
 import commands.impl.InitCommand;
 
 import java.util.HashMap;
@@ -14,6 +15,7 @@ public class CommandFactory implements Command{
     static {
         commandMap.put(CommandEnum.INIT, new InitCommand());
         commandMap.put(CommandEnum.CAT_FILE, new CatFileCommand());
+        commandMap.put(CommandEnum.HASH_OBJECT, new HashObjectCommand());
     }
 
     private CommandEnum currentCommand;

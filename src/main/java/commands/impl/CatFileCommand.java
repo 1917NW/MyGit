@@ -27,7 +27,6 @@ public class CatFileCommand implements Command {
         final File root = new File(".git");
         File bloShaFile = new File(root, "objects/" + firstDir + "/" + secondFile);
 
-
         // 解压文件
         String blobFileContent = ZipUtil.unZipFile(bloShaFile);
 
