@@ -5,7 +5,7 @@ import java.security.NoSuchAlgorithmException;
 
 public class SHAUtil {
 
-    public static String encodeTo40Bits(byte[] bytes){
+    public static String encodeTo40Characters(byte[] bytes){
 
         try {
             MessageDigest message = MessageDigest.getInstance("SHA-1");

@@ -48,6 +48,23 @@ public class TreeObject implements GitObject{
         return treeObject;
     }
 
+    public static String getTreeObjectContentFromGitObjects(List<TreeObjectEntry> treeObjectEntryList){
+        StringBuilder treeContent = new StringBuilder();
+
+        for(TreeObjectEntry treeObjectEntry : treeObjectEntryList){
+            treeContent.append(treeObjectEntry.getMode() + StrConstant.SPACE + treeObjectEntry.getName() + StrConstant.OBJECT_NULL + treeObjectEntry.getShaBytes().toString());
+        }
+        StringBuilder res = new StringBuilder();
+        res.append(TREE_FILE_PREFIX)
+                .append(StrConstant.SPACE)
+                .append(treeContent.toString().length())
+                .append(StrConstant.OBJECT_NULL)
+                .append(treeContent);
+        return res.toString();
+    }
+
+
+
     public void show(){
         for(TreeObjectEntry treeObjectEntry : gitObjects){
             System.out.println(treeObjectEntry.getMode() + StrConstant.SPACE + treeObjectEntry.getName() + StrConstant.SPACE + treeObjectEntry.getShaBytes().toString());

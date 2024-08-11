@@ -1,9 +1,6 @@
 package commands;
 
-import commands.impl.CatFileCommand;
-import commands.impl.HashObjectCommand;
-import commands.impl.InitCommand;
-import commands.impl.LsTreeCommand;
+import commands.impl.*;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -18,6 +15,8 @@ public class CommandFactory implements Command{
         commandMap.put(CommandEnum.CAT_FILE, new CatFileCommand());
         commandMap.put(CommandEnum.HASH_OBJECT, new HashObjectCommand());
         commandMap.put(CommandEnum.LS_TREE, new LsTreeCommand());
+        commandMap.put(CommandEnum.WRITE_TREE, new WriteTreeCommand());
+        commandMap.put(CommandEnum.COMMIT_TREE, new CommitTreeCommand());
     }
 
     private CommandEnum currentCommand;

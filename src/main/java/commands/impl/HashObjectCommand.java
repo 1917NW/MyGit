@@ -37,7 +37,7 @@ public class HashObjectCommand implements Command {
         String blobContentFromContent = BlobObject.getBlobContentFromContent(new String(bytes));
 
         // 通过SHA算法计算40位的HASH值
-        String shaHash = SHAUtil.encodeTo40Bits(blobContentFromContent.getBytes());
+        String shaHash = SHAUtil.encodeTo40Characters(blobContentFromContent.getBytes());
 
         // 判断是否需要保存
         if(needToWrite){
